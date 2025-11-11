@@ -1,13 +1,13 @@
-// header.js — Web Component معزول (Logo + Home + About Us)
+// header.js — Web Component (Logo + Home + About Us)
 class UCHeader extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: "open" });
 
-    // اكتشاف مجلد loginUniconnect
+   
     const inLogin = location.pathname.includes("/loginUniconnect/");
 
-    // مسارات ديناميكية
+ 
     const BASE = inLogin
       ? "../HomeUniconnect/"
       : "index.html".includes(location.pathname) ? "./" : "./";
@@ -20,7 +20,6 @@ class UCHeader extends HTMLElement {
       ? "../HomeUniconnect/about.html"
       : "about.html";
 
-    // HTML
     const wrapper = document.createElement("header");
     wrapper.className = "uc-header";
     wrapper.innerHTML = `
@@ -32,7 +31,7 @@ class UCHeader extends HTMLElement {
       </nav>
     `;
 
-    // CSS معزول بالكامل
+ 
     const style = document.createElement("style");
     style.textContent = `
       :host { all: initial; }
@@ -43,7 +42,7 @@ class UCHeader extends HTMLElement {
   top: 0;
   left: 0;
   background: #eef2ff;
-  padding: 14px 0px;       /* ← حذف البادينغ اليمين/يسار */
+  padding: 14px 0px;     
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,6 +55,7 @@ class UCHeader extends HTMLElement {
         font-size: 26px;
         font-weight: 700;
         color: #0f172a;
+        margin-left: 32px;
       }
 
 .uc-nav {
@@ -66,10 +66,12 @@ class UCHeader extends HTMLElement {
   margin-right: 32px;  
 
       .uc-link {
-        font-size: 18px;
+        font-size: 26px;
         font-weight: 600;
         text-decoration: none;
         color: #0f172a;
+        font-weight: 700;
+
       }
 
       .uc-link:hover {
@@ -82,10 +84,10 @@ class UCHeader extends HTMLElement {
 }
 
 
-// تسجيل الهيدر
+
 customElements.define("uc-header", UCHeader);
 
-// حقن الهيدر في أعلى البودي
+
 document.addEventListener("DOMContentLoaded", () => {
   const PAD = 82; 
   document.documentElement.style.setProperty("--uc-header-pad", PAD + "px");
