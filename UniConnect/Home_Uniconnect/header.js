@@ -71,7 +71,6 @@ class UCHeader extends HTMLElement {
         text-decoration: none;
         color: #0f172a;
         font-weight: 700;
-
       }
 
       .uc-link:hover {
