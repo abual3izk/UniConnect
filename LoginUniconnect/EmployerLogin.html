@@ -2,63 +2,50 @@
 <html lang="en">
 <head>
   <script src="../HomeUniconnect/header.js" defer></script>
-
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>EmployerLogin UniConnect</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="login.css">
-
-  <!-- Minimal inline CSS -->
-  <style>
-    .login-card { position: relative; z-index: 1; }
-    @media (max-width:520px){
-      .page-title { font-size: 34px; }
-    }
-  </style>
+  <style>.login-card{position:relative;z-index:1}@media(max-width:520px){.page-title{font-size:34px}}</style>
 </head>
-
 <body class="page" data-theme="employer">
   <main class="container">
-
     <h1 class="page-title">Hello Again!</h1>
     <p class="subtext">Welcome back! Please login to your account.</p>
 
     <div class="card-wrap">
-      <form id="empForm" class="login-card">
-
+      <form id="empForm" class="login-card" novalidate>
         <!-- Email -->
         <label class="field-label" for="empEmail">Email</label>
         <div class="input-wrap">
-          <input id="empEmail" class="input" type="email" required placeholder="YouEmail@gmail.com">
+          <input id="empEmail" class="input" type="email" required placeholder="you@company.com" autocomplete="email">
           <span class="input-icon">@</span>
         </div>
 
         <!-- Password -->
         <label class="field-label" for="empPass">Password</label>
         <div class="input-wrap">
-          <input id="empPass" class="input" type="password" required minlength="6" placeholder="Enter your password">
-          <button type="button" id="togglePass" class="icon-btn" aria-label="Show password">Show</button>
+          <input id="empPass" class="input" type="password" required minlength="6" placeholder="Enter your password" autocomplete="current-password">
+          <button type="button" class="icon-btn" data-target="empPass" aria-label="Show password">Show</button>
+        </div>
+
+        <!-- Forgot password  -->
+       <div style="margin:10px 0 16px">
+        <a href="#" class="forgot-link">Forgot password?</a>
         </div>
 
         <!-- Submit -->
         <button type="submit" class="btn btn-employer">Login</button>
 
-        <!-- Message -->
-        <p id="empMsg" class="msg"></p>
+        <!-- Message output -->
+        <p id="empMsg" class="msg" aria-live="polite"></p>
 
-        <!-- Sign up -->
-        <div class="signup-hint">
-          Don’t have an account?
-          <a href="signup.html" class="link-employer">Sign up</a>
-        </div>
-
+        <div class="signup-hint">Don’t have an account? <a href="signup.html" class="link-employer">Sign up</a></div>
       </form>
     </div>
   </main>
 
+ 
   <script src="login.js"></script>
 </body>
-
 </html>

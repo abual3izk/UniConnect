@@ -2,66 +2,49 @@
 <html lang="en">
 <head>
   <script src="../HomeUniconnect/header.js" defer></script>
-
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>GraduateLogin UniConnect</title>
-
-  <!-- Unified CSS -->
   <link rel="stylesheet" href="login.css">
-   
-
-  <!-- Minimal inline CSS (same pattern as other pages) -->
-  <style>
-    .login-card { position: relative; z-index: 1; }
-    @media (max-width:520px){
-      .page-title { font-size: 34px; }
-    }
-  </style>
+  <style>.login-card{position:relative;z-index:1}@media(max-width:520px){.page-title{font-size:34px}}</style>
 </head>
-
 <body class="page" data-theme="graduate">
-
   <main class="container">
-
-
-
     <h1 class="page-title">Hello Again!</h1>
     <p class="subtext">Welcome back! Please login to your account.</p>
 
     <div class="card-wrap">
-      <form id="gradForm" class="login-card">
-
+      <form id="gradForm" class="login-card" novalidate>
         <!-- Email -->
         <label class="field-label" for="gradEmail">Email</label>
         <div class="input-wrap">
-          <input id="gradEmail" class="input" type="email" required placeholder="you@example.com">
+          <input id="gradEmail" class="input" type="email" required placeholder="you@example.com" autocomplete="email">
           <span class="input-icon">@</span>
         </div>
 
         <!-- Password -->
         <label class="field-label" for="gradPass">Password</label>
         <div class="input-wrap">
-          <input id="gradPass" class="input" type="password" required minlength="6" placeholder="Enter your password">
-          <button type="button" id="togglePass" class="icon-btn" aria-label="Show password">Show</button>
+          <input id="gradPass" class="input" type="password" required minlength="6" placeholder="Enter your password" autocomplete="current-password">
+          <button type="button" class="icon-btn" data-target="gradPass" aria-label="Show password">Show</button>
         </div>
 
+        
+        <!-- Forgot password  -->
+       <div style="margin:10px 0 16px">
+        <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
 
-
+        <!-- Submit -->
         <button type="submit" class="btn btn-graduate">Login</button>
 
-        <p id="gradMsg" class="msg"></p>
-
-    
+        <!-- Message output -->
+        <p id="gradMsg" class="msg" aria-live="polite"></p>
       </form>
     </div>
   </main>
 
 
-
-
-<script src="../HomeUniconnect/login.js"></script>
-
-
+  <script src="login.js"></script>
 </body>
 </html>

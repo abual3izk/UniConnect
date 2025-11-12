@@ -2,59 +2,48 @@
 <html lang="en">
 <head>
   <script src="../HomeUniconnect/header.js" defer></script>
-
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>UniversityLogin UniConnect</title>
-
   <link rel="stylesheet" href="login.css">
-
-  <style>
-   
-    .login-card { position: relative; z-index: 1; }
-    @media (max-width:520px){
-      .page-title { font-size: 34px; }
-    }
-  </style>
+  <style>.login-card{position:relative;z-index:1}@media(max-width:520px){.page-title{font-size:34px}}</style>
 </head>
-
 <body class="page" data-theme="university">
-
   <main class="container">
-
- 
-
     <h1 class="page-title">Hello Again!</h1>
     <p class="subtext">Welcome back! Please login to your account.</p>
 
     <div class="card-wrap">
-      <form id="uniForm" class="login-card">
-
+      <form id="uniForm" class="login-card" novalidate>
+        <!-- Email -->
         <label class="field-label" for="uniEmail">Email</label>
         <div class="input-wrap">
-          <input id="uniEmail" class="input" type="email" required placeholder="you@university.edu">
+          <input id="uniEmail" class="input" type="email" required placeholder="you@university.edu" autocomplete="email">
           <span class="input-icon">@</span>
         </div>
 
+        <!-- Password -->
         <label class="field-label" for="uniPass">Password</label>
         <div class="input-wrap">
-          <input id="uniPass" class="input" type="password" required minlength="6" placeholder="Enter your password">
-          <button type="button" id="togglePass" class="icon-btn" aria-label="Show password">Show</button>
+          <input id="uniPass" class="input" type="password" required minlength="6" placeholder="Enter your password" autocomplete="current-password">
+          <button type="button" class="icon-btn" data-target="uniPass" aria-label="Show password">Show</button>
         </div>
 
+        <!-- Forgot password  -->
+       <div style="margin:10px 0 16px">
+        <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <!-- Submit -->
         <button type="submit" class="btn btn-university">Login</button>
 
-        <p id="uniMsg" class="msg"></p>
-
-       
+        <!-- Message output -->
+        <p id="uniMsg" class="msg" aria-live="polite"></p>
       </form>
     </div>
   </main>
 
 
-<script src="login.js"></script>
-
-
-
+  <script src="login.js"></script>
 </body>
 </html>
